@@ -28,10 +28,29 @@ module.exports = app => {
         let jsonNotes = JSON.stringify(notes);
         fs.writeFile('./db/db.json', jsonNotes, err => {
             if (err) {
-                return err;
+                return console.log(err);
             }
             console.log('Success!');
         });
         res.json(true);
     });
+
+app.delete("/api/notes/:id", (req, res) => {
+    const id = req.params.id;
+    let result;
+    notes.forEach((arr, index) => {
+      if (id == arr.id) {
+        notes.splice(index, 1);
+        const notesCopy = notes.slice();
+        let jsonNotes = JSON.stringify(notesCopy);
+        fs.writeFile("./db/db.json", jsonNotes, function(err) {
+          if (err) {
+            return console.log(err);
+          }
+          console.log("Success!");
+        });
+      }
+    });
+    res.json(true);
+  });
 };
