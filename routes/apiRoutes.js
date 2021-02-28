@@ -1,5 +1,5 @@
 const fs = require('fs');
-const notes = require('../Develop/db/db.json');
+const notes = require('../db/db.json');
 
 module.exports = app => {
     app.get('/api/notes', (req, res) => {
@@ -26,7 +26,7 @@ module.exports = app => {
         notes.push(newNotes);
 
         let jsonNotes = JSON.stringify(notes);
-        fs.writeFile('../Develop/db/db.json', jsonNotes, err => {
+        fs.writeFile('./db/db.json', jsonNotes, err => {
             if (err) {
                 return err;
             }
