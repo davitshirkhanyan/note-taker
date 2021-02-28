@@ -25,7 +25,7 @@ module.exports = app => {
         }
         notes.push(newNotes);
 
-        let jsonNotes = JSON.stringify(notes);
+        const jsonNotes = JSON.stringify(notes);
         fs.writeFile('./db/db.json', jsonNotes, err => {
             if (err) {
                 return console.log(err);
@@ -37,12 +37,12 @@ module.exports = app => {
 
 app.delete("/api/notes/:id", (req, res) => {
     const id = req.params.id;
-    let result;
     notes.forEach((arr, index) => {
       if (id == arr.id) {
+          
         notes.splice(index, 1);
         const notesCopy = notes.slice();
-        let jsonNotes = JSON.stringify(notesCopy);
+        const jsonNotes = JSON.stringify(notesCopy)
         fs.writeFile("./db/db.json", jsonNotes, function(err) {
           if (err) {
             return console.log(err);
