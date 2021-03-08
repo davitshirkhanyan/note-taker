@@ -1,5 +1,5 @@
 # Note Taker
-[![Badge for GitHub](https://img.shields.io/github/languages/top/davitshirkhanyan/team-profile-generator?style=flat&logo=appveyor)](https://davitshirkhanyan.github.io/team-profile-generator)
+[![Badge for GitHub](https://img.shields.io/github/languages/top/davitshirkhanyan/note-taker?style=flat&logo=appveyor)](https://davitshirkhanyan.github.io/note-taker)
 
 ## Description
 
